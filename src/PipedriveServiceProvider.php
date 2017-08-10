@@ -24,10 +24,6 @@ class PipedriveServiceProvider extends ServiceProvider
             $uri = $app['config']->get('services.pipedrive.uri') ?: 'https://api.pipedrive.com/v1/';
             $guzzleVersion = $app['config']->get('services.pipedrive.guzzle_version') ?: 6;
 
-            if (! $token) {
-                return;
-            }
-
             return new Pipedrive($token, $uri, $guzzleVersion);
         });
 
