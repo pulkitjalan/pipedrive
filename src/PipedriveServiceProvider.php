@@ -25,7 +25,7 @@ class PipedriveServiceProvider extends ServiceProvider
             $guzzleVersion = $app['config']->get('services.pipedrive.guzzle_version') ?: 6;
 
             if (! $token) {
-                throw new PipedriveException('Pipedrive was not configured in services.php configuration file.');
+                return;
             }
 
             return new Pipedrive($token, $uri, $guzzleVersion);
